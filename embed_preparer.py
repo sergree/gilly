@@ -83,6 +83,14 @@ def prepare_embed_from_discord(message):
         set_footer=False
     )
 
+    # Photo
+    photos = list(filter(lambda x: x.height, message.attachments))
+    photo = photos[0] if photos else None
+
+    if photo:
+        embed.set_image(url=photo.url)
+    # ---
+
     embed.set_thumbnail(url=str(message.guild.icon_url))
     embed.set_author(
         name=message.author.display_name,
