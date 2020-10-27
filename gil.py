@@ -75,5 +75,8 @@ class GillyClient(discord.Client):
         await self.send_embed_from_discord(message)
 
 
-client = GillyClient()
+intents = discord.Intents.default()
+intents.members = True
+intents.presences = True
+client = GillyClient(intents=intents)
 client.run(config.discord_token)
