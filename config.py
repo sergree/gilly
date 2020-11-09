@@ -46,6 +46,8 @@ discord_urls = {
     267624335836053506: 'https://discord.gg/python',
 }
 
+add_thumbs = True
+
 discord_to_discord_channel_id = 600000000000000001
 
 # Настройки Embed
