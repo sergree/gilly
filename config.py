@@ -53,4 +53,3 @@ discord_to_discord_channel_id = 600000000000000001
 # Настройки Embed
 
 embed_color = 0x002568
-
