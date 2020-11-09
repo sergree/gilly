@@ -24,7 +24,8 @@ class GillyClient(discord.Client):
     async def send_embed_from_vk(self, post, group_profile):
         embed = prepare_embed_from_vk(post, group_profile)
         sent = await self.vk_to_discord_channel.send(embed=embed)
-        await self.set_thumbs(sent)
+        if config.add_thumbs:
+            await self.set_thumbs(sent)
 
     @staticmethod
     async def get_vk_data(send_method):
@@ -75,8 +76,9 @@ class GillyClient(discord.Client):
         await self.send_embed_from_discord(message)
 
 
-intents = discord.Intents.default()
-intents.members = True
-intents.presences = True
+intents = discord.Intents.none()
+intents.guilds = True
+intents.guild_messages = True
+
 client = GillyClient(intents=intents)
 client.run(config.discord_token)
