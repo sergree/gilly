@@ -2,7 +2,7 @@ import discord
 import config
 
 
-def __construct_embed(title, description, url=None, set_footer=True):
+def __construct_embed(title, description, url=discord.embeds.EmptyEmbed, set_footer=True):
     embed = discord.Embed(
             title=title,
             color=config.embed_color,
