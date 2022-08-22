@@ -6,11 +6,8 @@ import config
 class VKClient:
 
     def __init__(self, access_token):
-        self.session = vk.Session(
-            access_token=access_token
-        )
         self.api = vk.API(
-            self.session,
+            access_token=access_token,
             v='5.101',
             lang='ru',
             timeout=10

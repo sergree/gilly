@@ -13,6 +13,9 @@ class GillyClient(discord.Client):
         super().__init__(*args, **kwargs)
         self.vk_to_discord_channel = None
         self.discord_to_discord_channel = None
+        self.vk = None
+
+    async def setup_hook(self) -> None:
         self.vk = self.loop.create_task(self.vk_task())
 
     @staticmethod
